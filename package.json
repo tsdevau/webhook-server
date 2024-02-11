@@ -1,0 +1,47 @@
+{
+  "name": "@tsdevau/webhook-server",
+  "displayName": "tedevau Webook Server",
+  "version": "0.0.1",
+  "private": "false",
+  "description": "Very basic webhook server to listen for incoming webhooks and launch a script to perform actions locally.",
+  "keywords": [
+    "express",
+    "webhook",
+    "server",
+    "typescript",
+    "esbuild",
+    "eslint",
+    "prettier",
+    "tsdevau"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsdevau/webook-server.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "tsdevau",
+    "email": "github@tsdev.au",
+    "url": "https://tsdev.au/webhook-server"
+  },
+  "type": "commonjs",
+  "main": "whServer.js",
+  "scripts": {
+    "build": "node ./build.mjs",
+    "lint": "eslint --color --ext .js,.mjs,.ts ./**/*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.17",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-packagejson": "^2.4.10"
+  }
+}

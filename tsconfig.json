@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ESNext", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "build",
+    "removeComments": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ESNext",
+    "resolveJsonModule": true,
+    "allowJs": true
+  },
+  "exclude": ["node_modules", "dist", "backup", "test", "*coverage", ".vscode"],
+  "include": ["whServer.ts"],
+  "types": ["node", "express"]
+}
