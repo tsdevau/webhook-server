@@ -1,26 +1,23 @@
 {
   "packages": {
-    "path/to/pkg": "."
+    ".": "0.0.1"
   },
   "package-name": "@tsdevau/webhook-server",
-  "release-type": "node",
-  "initial-version": "0.0.1",
-  "release-commit-message-pattern": "chore${scope}: 🔖 release `@tsdevau/webhook-server` -> v${version}",
-  "pull-request-title-pattern": "chore${scope}: 🔖 `@tsdevau/webhook-server` -> v${version}",
+  "release-commit-message-pattern": "build(${scope}): 🔖 Release ${component} v${version}",
+  "pull-request-title-pattern": "build(${scope}): 🔖 Release ${component} v${version}",
   "pull-request-header": ":robot: PR by release-please bot",
   "changelog-sections": [
     { "type": "feat", "section": "Features & Performance Improvements" },
     { "type": "perf", "section": "Features & Performance Improvements" },
-    { "type": "style", "section": "Styles & UX Improvements" },
     { "type": "fix", "section": "Bug Fixes" },
     { "type": "revert", "section": "Work in Progress" },
-    { "type": "wip", "section": "Work In Progress" },
-    { "type": "init", "section": "Work in Progress" },
+    { "type": "wip", "section": "Work in Progress" },
     { "type": "docs", "section": "Documentation" },
-    { "type": "refactor", "section": "Code & DX Improvements" },
-    { "type": "chore", "section": "DX Improvements & Configuration" },
-    { "type": "build", "section": "DX Improvements & Configuration" },
-    { "type": "test", "section": "DX Improvements & Configuration" },
-    { "type": "ci", "section": "DX Improvements & Configuration" }
+    { "type": "refactor", "section": "DX Improvements" },
+    { "type": "style", "section": "DX Improvements" },
+    { "type": "chore", "section": "DX Maintenance & Configuration" },
+    { "type": "build", "section": "DX Maintenance & Configuration" },
+    { "type": "test", "section": "DX Testing" },
+    { "type": "ci", "section": "DX Continuous Integrations" }
   ]
 }
