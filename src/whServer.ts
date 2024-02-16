@@ -1,5 +1,15 @@
+/**
+ * @license
+ * tpsTech <https://tpstech.dev/>
+ * License: MIT
+ * Licence Copyright: Copyright (c) 2024 TPS Contractors Pty Ltd and its affiliates.  All rights reserved.
+ * Licensed under the MIT License. See LICENCE in the project root for license information.
+ *
+ * @author @tsdevau
+ */
+
 import express from "express"
-import { mySecretFn } from "./secrets/mySecretFns"
+import { mySecretFn } from "../secrets/mySecretFns"
 
 const app = express()
 const whPort = process.env.WH_PORT ?? 3009
@@ -11,7 +21,7 @@ app.use(express.json())
 
 app.post(whPath, (req, res) => {
   console.log("Webhook received!")
-  // TODO - process the webhook payload - likely just write a separate function and call it here
+  // TODO - process the webhook payload - like run mySecretFn
   mySecretFn()
   res.status(200).send("Webhook received!")
 })

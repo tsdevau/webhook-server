@@ -16,6 +16,6 @@
     "allowJs": true
   },
   "exclude": ["node_modules", "dist", "backup", "test", "*coverage", ".vscode"],
-  "include": ["whServer.ts"],
+  "include": ["src/whServer.ts"],
   "types": ["node", "express"]
 }
