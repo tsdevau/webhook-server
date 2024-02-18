@@ -9,23 +9,62 @@
  */
 
 import express from "express"
-import { mySecretFn } from "../secrets/mySecretFns"
+import { readFileSync } from "fs"
+import http from "http"
+import https from "https"
+import { logOutput } from "./logger"
+import { processPayload } from "./processPayload"
+import { verifyPayload } from "./verifyPayload"
 
-const app = express()
-const whPort = process.env.WH_PORT ?? 3009
+// Set up the environment variables.
 const whPath = process.env.WH_PATH ?? "/webhook"
-const whHost = process.env.WH_HOST ?? "http://localhost"
+const whHost = process.env.WH_HOST ?? "localhost"
 
-// Set up the middleware for parsing JSON
-app.use(express.json())
+// HTTP variables - required if using an HTTP server.
+// If not using HTTP, you can remove this block.
+const httpPort = process.env.HTTP_PORT ?? 3001
 
+// HTTPS variables - required if using an HTTPS server.
+// If not using HTTPS, you can remove this block.
+const httpsHost = process.env.HTTPS_HOST ?? whHost
+const httpsPort = process.env.HTTPS_PORT ?? 3002
+const httpsKey = process.env.HTTPS_KEY ?? readFileSync("path/to/https/key")
+const httpsCert = process.env.HTTPS_CERT ?? readFileSync("path/to/https/cert")
+const credentials = { key: httpsKey, cert: httpsCert }
+
+// Set up the express app.
+const app = express()
+
+// Set up any required middlewares, like JSON Parsing, Verification etc.
+// TODO - add any required middlewares here.
+
+// Configure endpoint routes.
 app.post(whPath, (req, res) => {
-  console.log("Webhook received!")
-  // TODO - process the webhook payload - like run mySecretFn
-  mySecretFn()
-  res.status(200).send("Webhook received!")
+  // Verify the webhook payload is trusted if required. If it's not trusted, return a 401. If it is, return a 202.
+  const isValid = verifyPayload(req)
+  if (!isValid) {
+    res.status(401).send("Unauthorised - Invalid payload signature.")
+    logOutput("Unauthorised request received - Invalid payload signature.")
+    return
+  }
+  res.status(202).send(`Webhook received on ${whHost}:${httpPort}${whPath}!`)
+  logOutput("Validated request payload received.")
+
+  // Process the webhook payload here.
+  const payload = req.body
+  const isProcessed = processPayload(payload)
+  logOutput(`Payload was${isProcessed ? "" : " not"} processed successfully.`)
+  return
 })
 
-app.listen(whPort, () => {
-  console.log(`Webhook listener running on ${whHost}:${whPort}`)
+// Start the HTTPS server.
+const httpsServer = https.createServer(credentials, app)
+httpsServer.listen(httpsPort, () => {
+  console.log(`HTTPS listener is running on https://${httpsHost}:${httpsPort}`)
+})
+
+// Start the HTTP server.
+const httpServer = http.createServer(app)
+httpServer.listen(httpPort, () => {
+  console.log(`HTTP listener is running on http://${whHost}:${httpPort}`)
 })
