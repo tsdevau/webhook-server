@@ -1,7 +1,7 @@
 {
   "name": "@tsdevau/webhook-server",
   "displayName": "tedevau Webook Server",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": "false",
   "description": "Very basic webhook server to listen for incoming webhooks and launch a script to perform actions locally.",
   "keywords": [
