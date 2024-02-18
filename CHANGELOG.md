@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/tsdevau/webhook-server/compare/webhook-server-v1.1.0...webhook-server-v1.1.1) (2024-02-18)
+
+
+### Features & Performance Improvements
+
+* **whServer:** refine logging and payload processing ([31019ab](https://github.com/tsdevau/webhook-server/commit/31019ab4edcc929fba187092f659ac2ca142bc76))
+
 ## [1.1.0](https://github.com/tsdevau/webhook-server/compare/webhook-server-v1.0.0...webhook-server-v1.1.0) (2024-02-18)
 
 
