@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://github.com/tsdevau/webhook-server/compare/webhook-server-v1.0.0...webhook-server-v1.1.0) (2024-02-18)
+
+
+### Features & Performance Improvements
+
+* **logger:** implement custom logging utility ([6581126](https://github.com/tsdevau/webhook-server/commit/65811269ed3b96dc79fa42bca36ab30ac4bfc36d))
+* **processPayload:** implement webhook payload processing ([70c0ce9](https://github.com/tsdevau/webhook-server/commit/70c0ce934be59e811f9beaea4f42773b75cef7af))
+* **verifyPayload:** add payload verification for webhooks ([0f90ac6](https://github.com/tsdevau/webhook-server/commit/0f90ac662b024724585b286db5a33b548c88f55b))
+* **whServer:** enhance webhook server with HTTP/HTTPS support ([4135a3a](https://github.com/tsdevau/webhook-server/commit/4135a3a9ae4fafe998658db243e89d5e5fd74a8e))
+
+
+### DX Maintenance & Configuration
+
+* **config:** update configurations and dependencies ([741b60c](https://github.com/tsdevau/webhook-server/commit/741b60c9f4aae9f3331dbe7831f933fc8d92e9a2))
+
 ## [1.0.0](https://github.com/tsdevau/webhook-server/compare/webhook-server-v0.0.1...webhook-server-v1.0.0) (2024-02-16)
 
 
