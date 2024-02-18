@@ -8,10 +8,14 @@ import { logOutput } from "./logger"
  */
 export const processPayload = (payload: JSON | string) => {
   try {
-    logOutput(`Do something with the request payload here:\n${JSON.stringify(payload, null, 2)}`)
+    logOutput(
+      `Do something with the request payload here:\n${JSON.stringify(payload, null, 2)}`,
+      undefined,
+      "info",
+    )
     return true
   } catch (error: unknown) {
-    logOutput(`Error processing request payload: ${error}`)
+    logOutput(`Error processing request payload: ${error}`, "Processing Error", "error")
     return false
   }
 }

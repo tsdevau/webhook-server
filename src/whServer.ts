@@ -44,27 +44,35 @@ app.post(whPath, (req, res) => {
   const isValid = verifyPayload(req)
   if (!isValid) {
     res.status(401).send("Unauthorised - Invalid payload signature.")
-    logOutput("Unauthorised request received - Invalid payload signature.")
+    logOutput(
+      "Unauthorised request received - Invalid payload signature.",
+      "Security Warning",
+      "warning",
+    )
     return
   }
   res.status(202).send(`Webhook received on ${whHost}:${httpPort}${whPath}!`)
-  logOutput("Validated request payload received.")
+  logOutput("Validated request payload received.", undefined, "info")
 
   // Process the webhook payload here.
   const payload = req.body
   const isProcessed = processPayload(payload)
-  logOutput(`Payload was${isProcessed ? "" : " not"} processed successfully.`)
+  logOutput(
+    `Payload was${isProcessed ? "" : " not"} processed successfully.`,
+    "Payload Action",
+    `${isProcessed ? "success" : "error"}`,
+  )
   return
 })
 
 // Start the HTTPS server.
 const httpsServer = https.createServer(credentials, app)
 httpsServer.listen(httpsPort, () => {
-  console.log(`HTTPS listener is running on https://${httpsHost}:${httpsPort}`)
+  console.log(`HTTPS listener is running on https://${httpsHost}:${httpsPort}`, undefined, "info")
 })
 
 // Start the HTTP server.
 const httpServer = http.createServer(app)
 httpServer.listen(httpPort, () => {
-  console.log(`HTTP listener is running on http://${whHost}:${httpPort}`)
+  console.log(`HTTP listener is running on http://${whHost}:${httpPort}`, undefined, "info")
 })
