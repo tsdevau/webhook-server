@@ -1,22 +1,20 @@
 {
   "name": "@tsdevau/webhook-server",
-  "displayName": "tedevau Webook Server",
+  "displayName": "tsdevau Webhook Server",
   "version": "1.0.0",
   "private": "false",
-  "description": "Very basic webhook server to listen for incoming webhooks and launch a script to perform actions locally.",
+  "description": "Basic webhook/api server to listen for webhooks or other REST requests, verify the request, respond accordingly, and process the request payload to perform actions locally.",
   "keywords": [
     "express",
     "webhook",
     "server",
-    "typescript",
-    "esbuild",
-    "eslint",
-    "prettier",
-    "tsdevau"
+    "listener",
+    "api",
+    "rest"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tsdevau/webook-server.git"
+    "url": "https://github.com/tsdevau/webhook-server.git"
   },
   "license": "MIT",
   "author": {
@@ -25,23 +23,24 @@
     "url": "https://tsdev.au/webhook-server"
   },
   "type": "commonjs",
-  "main": "whServer.js",
+  "main": "build/whServer.js",
   "scripts": {
     "build": "node ./build.mjs",
     "lint": "eslint --color --ext .js,.mjs,.ts ./**/*",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./build/whServer.js"
   },
   "dependencies": {
+    "chalk": "^5.3.0",
     "express": "^4.18.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
-    "@types/node": "^20.11.17",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@types/node": "^20.11.19",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
     "esbuild": "^0.20.0",
     "eslint": "^8.56.0",
     "prettier": "^3.2.5",
-    "prettier-plugin-packagejson": "^2.4.10"
+    "prettier-plugin-packagejson": "^2.4.11"
   }
 }

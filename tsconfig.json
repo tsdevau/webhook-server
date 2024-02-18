@@ -15,7 +15,7 @@
     "resolveJsonModule": true,
     "allowJs": true
   },
-  "exclude": ["node_modules", "dist", "backup", "test", "*coverage", ".vscode"],
+  "exclude": ["node_modules", "build", ".vscode"],
   "include": ["src/whServer.ts"],
   "types": ["node", "express"]
 }
