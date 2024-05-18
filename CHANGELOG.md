@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/tsdevau/webhook-server/compare/webhook-server-v1.1.1...webhook-server-v1.1.2) (2024-05-18)
+
+
+### DX Maintenance & Configuration
+
+* **dependencies:** Update package.json dependencies to latest ([2e6eea2](https://github.com/tsdevau/webhook-server/commit/2e6eea26fe896f2843113c04c5332f55be4ad0e9))
+
 ## [1.1.1](https://github.com/tsdevau/webhook-server/compare/webhook-server-v1.1.0...webhook-server-v1.1.1) (2024-02-18)
 
 
